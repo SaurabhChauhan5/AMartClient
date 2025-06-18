@@ -3,6 +3,8 @@ import { useAppContext } from "../context/AppContext";
 import { Link, useParams } from "react-router-dom";
 import { assets } from "../assets/assets";
 import ProductCard from "../components/ProductCard";
+import { getImageUrl } from "../utils/getImageUrl";
+
 const SingleProduct = () => {
   const { products, navigate, addToCart } = useAppContext();
   const { id } = useParams();
@@ -45,7 +47,7 @@ const SingleProduct = () => {
                   className="border max-w-24 border-gray-500/30 rounded overflow-hidden cursor-pointer"
                 >
                   <img
-                    src={`${import.meta.env.VITE_API_IMAGE_URL}/${image}`}
+                    src={getImageUrl(image)}
                     alt={`Thumbnail ${index + 1}`}
                   />
                 </div>
@@ -54,7 +56,7 @@ const SingleProduct = () => {
 
             <div className="border border-gray-500/30 max-w-100 rounded overflow-hidden">
               <img
-                src={`${import.meta.env.VITE_API_IMAGE_URL}/${thumbnail}`}
+                src={getImageUrl(thumbnail)}
                 alt="Selected product"
               />
             </div>

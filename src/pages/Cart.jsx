@@ -3,6 +3,8 @@ import { useAppContext } from "../context/AppContext";
 import { dummyAddress } from "../assets/assets";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { getImageUrl } from "../utils/getImageUrl";
+
 const Cart = () => {
   const {
     products,
@@ -117,7 +119,7 @@ const Cart = () => {
               >
                 <img
                   className="max-w-full h-full object-cover"
-                  src={`${import.meta.env.VITE_API_IMAGE_URL}/${product.image[0]}`}
+                  src={getImageUrl(product.image[0])}
                   alt={product.name}
                 />
               </div>
